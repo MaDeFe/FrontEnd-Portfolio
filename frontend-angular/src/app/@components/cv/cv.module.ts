@@ -10,6 +10,7 @@ import { CvComponent } from './cv.component';
   ],
   imports: [
     CommonModule
-  ]
+  ],
+  exports: [CvComponent]
 })
 export class CvModule { }

@@ -10,6 +10,7 @@ import { ServiciosComponent } from './servicios.component';
   ],
   imports: [
     CommonModule
-  ]
+  ],
+  exports: [ServiciosComponent]
 })
 export class ServiciosModule { }
