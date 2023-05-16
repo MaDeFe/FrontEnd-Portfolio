@@ -1,0 +1,80 @@
+
+<!-- ======= Currículum Vitae ======= -->
+<section id="cv" class="cv">
+    <div class="container">
+
+        <div class="section-title">
+        <span>Currículum Vitae</span>
+        <h2>Currículum Vitae</h2>
+        <p>Debí, pues, elegir otro oficio y aprendí a pilotar aviones.<br>Volé un poco por todo el mundo. Es cierto que la geografía me sirvió de mucho.<br>Al primer golpe de vista estaba
+            en condiciones de distinguir China de Arizona.<br>Es muy útil
+            si uno llega a extraviarse durante la noche.                
+        </p>
+        </div>
+
+        <div class="row">
+        <div class="col-lg-12">
+            <h3 class="cv-title">Educación Formal</h3>
+            <div *ngFor="let item of CvEducacion" class="cv-item"> 
+                <button class="float-end align-self-end btn btn-primary btn-sm" *ngIf="(isLoggedIn | async) && editingItem?.id != item.id"
+                    (click)="editItem(item)"><i class='bx bx-edit'></i></button>
+                <div *ngIf="editingItem?.id != item.id; else editItemForm">
+                    <h4>{{item.titulo}}</h4>
+                    <h5>{{item.anio_inicio}} - {{item.anio_final}}</h5>
+                    <p><em>{{item.subtitulo}}</em></p>
+                    <div [innerHTML]="item.descripcion"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <h3 class="cv-title">Experiencia Laboral</h3>
+            <div *ngFor="let item of CvLaboral" class="cv-item">
+                <button class="float-end align-self-end btn btn-primary btn-sm" *ngIf="(isLoggedIn | async) && editingItem?.id != item.id"
+                    (click)="editItem(item)"><i class='bx bx-edit'></i></button>
+                <div *ngIf="editingItem?.id != item.id; else editItemForm">
+                    <h4>{{item.titulo}}</h4>
+                    <h5>{{item.anio_inicio}} - {{item.anio_final}}</h5>
+                    <p><em>{{item.subtitulo}}</em></p>
+                    <div [innerHTML]="item.descripcion"></div>
+                </div>
+            </div>
+        </div>
+        </div>
+
+    </div>
+    </section>
+<!-- End Currículum Vitae -->
+
+
+<ng-template #editItemForm>
+    <div class="w-md-50 card">
+        <div class="card-body">
+            <form *ngIf="form" [formGroup]="form" (ngSubmit)="onSubmit()">
+                <div class="mb-3">
+                    <label class="form-label">Titulo: </label>
+                    <input type="text" formControlName="titulo" class="form-control form-control-sm" />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Año Inicio: </label>
+                    <input type="text" formControlName="anio_inicio" class="form-control form-control-sm" />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Año Final: </label>
+                    <input type="text" formControlName="anio_final" class="form-control form-control-sm" />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Subtitulo: </label>
+                    <input type="text" formControlName="subtitulo" class="form-control form-control-sm" />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Descripcion: </label>
+                    <textarea class="form-control form-control-sm" formControlName="descripcion" rows="3"></textarea>
+                </div>
+                <div>
+                    <button class="btn btn-primary btn-sm" (click)="editingItem = null">Cancelar</button>
+                    <button type="submit" class="btn btn-primary btn-sm">Guardar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</ng-template>
