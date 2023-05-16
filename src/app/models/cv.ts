@@ -25,7 +25,7 @@ export var cvs: Cv[] = [
         categoria: 'educacion',
         anio_inicio: 2016,
         anio_final: 2017,
-        titulo: '',
+        titulo: 'Masajista Profesional',
         subtitulo: 'Centro Médico Escuela - CABA - Bs As',
         descripcion: '<p>Curso de 9 meses de duración, en el cual aprendí técnicas de manipulación de los músculos, para ayudar a mis pacientes a tener una mejor calidad de vida. Aunado con conocimientos de Digitopuntura, Reiki y otras técnicas enfocadas en el bienestar.</p>'
     },
