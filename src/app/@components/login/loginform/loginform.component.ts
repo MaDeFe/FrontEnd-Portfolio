@@ -36,6 +36,12 @@ export class LoginformComponent implements OnInit {
       if (this.form.invalid) {
           return;
       }
+      if (this.f['user'].value != 'admin'){
+        return;
+      }
+      if (this.f['password'].value != 'admin'){
+        return;
+      }
       this.loading = true;
 
       setTimeout(() => {
